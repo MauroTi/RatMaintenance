@@ -1,0 +1,34 @@
+﻿@model RatMaintenance.Models.Equipment
+
+@{
+    ViewData["Title"] = @Model.EquipmentId == 0 ? "Create Equipment" : "Edit Equipment";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Equipment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="@ViewData["Title"] == " Create Equipment" ? "Create" : "Edit" ">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@ViewData["Title"] == " Create Equipment" ? "Create" : "Save" "
+                       class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

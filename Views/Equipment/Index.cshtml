@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RatMaintenance.Models.Equipment>
+
+@{
+    ViewData["Title"] = "Equipments";
+}
+
+<h2>Equipments</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Serial Number</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var equipment in Model)
+        {
+            <tr>
+                <td>@equipment.Name</td>
+                <td>@equipment.SerialNumber</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@equipment.EquipmentId" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@equipment.EquipmentId" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@equipment.EquipmentId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
